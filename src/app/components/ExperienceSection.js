@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
@@ -36,7 +37,7 @@ const ExperienceSection = (props) => {
             </section>
             <section className="images_section">
                 {props.images?.map((image, index) => (
-                <img
+                <Image
                     key={index}
                     className={image.classname}
                     src={image.src}

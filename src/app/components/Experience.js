@@ -238,8 +238,9 @@ export const Experience = () => {
               {({ isVisible }) =>
                 <section className={isVisible ? "animate__animated animate__fadeIn": ""}>
                   <h2>Experience</h2>
-                  {experience_data.map((experience) => (
+                  {experience_data.map((experience, index) => (
                     <ExperienceSection 
+                      key={index}
                       images={experience.images} 
                       technologies={experience.technologies}
                       headings={experience.headings} 
