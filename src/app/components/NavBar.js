@@ -30,6 +30,13 @@ export const NavBar = () => {
         setActiveLink(value);
     }
 
+    const handleDownloadResume = () => {
+        const link = document.createElement('a');
+        link.href = '/api/resume';
+        link.download = 'jerrydeng.pdf';
+        link.click();
+    }
+
     return (
         <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
             <Container>
@@ -45,6 +52,7 @@ export const NavBar = () => {
                 <span className="navbar-text">
                 <div className="social-icon">
                     <a href="https://www.linkedin.com/in/jdeng2857/" target="_blank"><Image src={navIcon1} alt="linkedin" /></a>
+                    <a href="/jerrydeng.pdf" download target="_blank"><Image src={navIcon2} alt="resume" /></a>
                 </div>
                 </span>
             </Navbar.Collapse>
