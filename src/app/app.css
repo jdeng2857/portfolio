@@ -549,6 +549,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .proj-imgbx:hover::before {
   height: 100%;
 }
+.project-tab:hover {
+  border-color: blue;
+}
 .proj-txtx {
   position: absolute;
   text-align: center;
@@ -562,6 +565,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .proj-imgbx:hover .proj-txtx {
   top: 50%;
   opacity: 1;
+}
+.project-image {
+  height: 230px;
 }
 .proj-txtx h4 {
   font-size: 30px;
