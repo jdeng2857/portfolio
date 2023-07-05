@@ -12,7 +12,6 @@ function App() {
     <div className="App">
       <NavBar />
       <Banner />
-      {/* <Skills /> */}
       <Experience />
       <Projects />
     </div>
