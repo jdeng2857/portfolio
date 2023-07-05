@@ -191,7 +191,7 @@ export const Experience = () => {
         period: "Sep 2020 - Apr 2021",
       },
       descriptions: [
-        "Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify" + 
+        "Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " + 
         "while taking university classes at Carleton University for a computer Science degree.",
         "Completed an 8-month long training path with courses in Ruby on Rails, Git, Scrum, SQL databases, React, Javascript, and GraphQL",
       ],
