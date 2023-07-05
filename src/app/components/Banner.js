@@ -61,7 +61,7 @@ export const Banner = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h1>{`Hi! I'm Jerry `}</h1>
                 <p>I am a 4th year computer science student at Carleton University currently
-                   interning as an Infrastructure Engineer at Shopify. At Shopify, I've also interned 
+                   interning as an Infrastructure Engineer at Shopify. At Shopify, I have also interned 
                    in backend and frontend positions. Feel free to take a look at my experience and 
                    projects or connect via Linkedin!</p>
               </div>}
