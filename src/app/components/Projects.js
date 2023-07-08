@@ -4,6 +4,7 @@ import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import portfolioImg from "../assets/img/portfolio.png";
 import rustImg from "../assets/img/rust-web-server.png";
+import birdClassifierImg from "../assets/img/bird-classifier.png";
 import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
@@ -21,7 +22,7 @@ export const Projects = () => {
     {
       title: "Bird Classifier",
       description: "Categorizes bird images to one of over 500 species. Developed with Python using Flask and Tensorflow machine learning.",
-      imgUrl: projImg3,
+      imgUrl: birdClassifierImg,
     },
     {
       title: "Rust Multithread Web Server",
