@@ -62,12 +62,12 @@ export const Experience = () => {
         period: "Jan 2023 - Aug 2023",
       },
       descriptions: [
-        "On the Edge Infrastructure team, developed HTTPS L7 routing infrastructure with Google Kubernetes Engine, involving updating custom NGINX" +
+        "- On the Edge Infrastructure team, developed HTTPS L7 routing infrastructure with Google Kubernetes Engine, involving updating custom NGINX" +
         " middleware written in Lua, provisioning SSL certificates and firewall rules, traffic management, handling 20 million RPM.",
-        "Built observability tooling with Prometheus metrics and integrated request latency dashboards with alerts.",
-        "Implemented automated memory deletion for Kubernetes controller in Golang, reducing resources used.",
-        "Upgraded Kubernetes cluster fleet in Terraform with custom developer tools, improving infrastructure security.",
-        "Reduced latency between two major services by 75% using Kubernetes load testing.",
+        "- Built observability tooling with Prometheus metrics and integrated request latency dashboards with alerts.",
+        "- Implemented automated memory deletion for Kubernetes controller in Golang, reducing resources used.",
+        "- Upgraded Kubernetes cluster fleet in Terraform with custom developer tools, improving infrastructure security.",
+        "- Reduced latency between two major services by 75% using Kubernetes and Google Cloud Load Balancers",
       ],
     },
     {
@@ -105,11 +105,11 @@ export const Experience = () => {
         period: "May 2022 - Dec 2022",
       },
       descriptions: [
-        "Prepared project experiment to add a new server-driven section to the store screen of the Shop app, including"
+        "- Prepared project experiment to add a new server-driven section to the store screen of the Shop app, including"
         +" developing Ruby data loader ingesting MySQL data into client-ready GraphQL APIs with Redis caching",
-        "Integrated Elasticsearch templates adding a new sort option for products, with over 2 million records",
-        "Added Datadog monitoring and alerts for key backend services with StatsD metrics",
-        "Championed project deep-dive into improving store section performance, discovering extraneous logic with distributed tracing in Observe and"
+        "- Integrated Elasticsearch templates adding a new sort option for products, with over 2 million records",
+        "- Added Datadog monitoring and alerts for key backend services with StatsD metrics",
+        "- Championed project deep-dive into improving store section performance, discovering extraneous logic with distributed tracing in Observe and"
         +" coordinated action items for the team, resulting in 10% average reduction in latency across all services",
       ],
     },
@@ -148,11 +148,11 @@ export const Experience = () => {
         period: "May 2021 - Apr 2022",
       },
       descriptions: [
-        "Designed and integrated report editing buttons into a data platform website combining all data sources, creating"
+        "- Designed and integrated report editing buttons into a data platform website combining all data sources, creating"
          +" React components, enabling archiving and locking reports for over 1000 developers and data scientists",
-        "Fixed CSS styling errors, resulting in correct links and improved flex layout for superior user experience",
-        "Developed Ruby GraphQL APIs to allow authenticated users to access restricted functionalities and datasets",
-        "Owned pages of a major data discovery website revamp, drafting Figma designs, creating React components, "
+        "- Fixed CSS styling errors, resulting in correct links and improved flex layout for superior user experience",
+        "- Developed Ruby GraphQL APIs to allow authenticated users to access restricted functionalities and datasets",
+        "- Owned pages of a major data discovery website revamp, drafting Figma designs, creating React components, "
         +"transforming GraphQL queries with Typescript, resulting in improved UI navigation for over 4000 users",
       ],
     },
@@ -191,9 +191,9 @@ export const Experience = () => {
         period: "Sep 2020 - Apr 2021",
       },
       descriptions: [
-        "Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " + 
+        "- Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " + 
         "while taking university classes at Carleton University for a computer Science degree.",
-        "Completed an 8-month long training path with courses in Ruby on Rails, Git, Scrum, SQL databases, React, Javascript, and GraphQL",
+        "- Completed an 8-month long training path with courses in Ruby on Rails, Git, Scrum, SQL databases, React, Javascript, and GraphQL",
       ],
     },
     {
@@ -221,9 +221,9 @@ export const Experience = () => {
         period: "Jul 2019 - Aug 2019",
       },
       descriptions: [
-        "Analyzed network traffic with Wireshark to detect malware on mobile devices",
-        "Developed and shipped malware signatures into a system that blocks malignant requests",
-        "Learned the OSI model, TCP/IP, network security, bash, linux",
+        "- Analyzed network traffic with Wireshark to detect malware on mobile devices",
+        "- Developed and shipped malware signatures into a system that blocks malignant requests",
+        "- Learned the OSI model, TCP/IP, network security, bash, linux",
       ],
     },
   ]
