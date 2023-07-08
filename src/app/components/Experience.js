@@ -148,12 +148,12 @@ export const Experience = () => {
         period: "May 2021 - Apr 2022",
       },
       descriptions: [
-        "Prepared project experiment to add a new server-driven section to the store screen of the Shop app, including"
-        +" developing Ruby data loader ingesting MySQL data into client-ready GraphQL APIs with Redis caching",
-        "Integrated Elasticsearch templates adding a new sort option for products, with over 2 million records",
-        "Added Datadog monitoring and alerts for key backend services with StatsD metrics",
-        "Championed project deep-dive into improving store section performance, discovering extraneous logic with distributed tracing in Observe and"
-        +" coordinated action items for the team, resulting in 10% average reduction in latency across all services",
+        "Designed and integrated report editing buttons into a data platform website combining all data sources, creating"
+         +" React components, enabling archiving and locking reports for over 1000 developers and data scientists",
+        "Fixed CSS styling errors, resulting in correct links and improved flex layout for superior user experience",
+        "Developed Ruby GraphQL APIs to allow authenticated users to access restricted functionalities and datasets",
+        "Owned pages of a major data discovery website revamp, drafting Figma designs, creating React components, "
+        +"transforming GraphQL queries with Typescript, resulting in improved UI navigation for over 4000 users",
       ],
     },
     {
