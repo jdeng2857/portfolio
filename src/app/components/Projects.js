@@ -19,18 +19,41 @@ export const Projects = () => {
       description: "The site you're on. Made with React.js and deployed on Vercel",
       imgUrl: portfolioImg,
       link: "https://github.com/jdeng2857/portfolio",
+      technologies: [
+        "React.js",
+        "Next.js",
+        "Typescript",
+        "Cloudflare",
+        "IP/DNS",
+        "Vercel",
+        "CSS",
+      ]
     },
     {
       title: "Bird Classifier",
       description: "Categorizes bird images to one of over 500 species. Developed with Python using Flask and Tensorflow machine learning.",
       imgUrl: birdClassifierImg,
       link: "https://github.com/jdeng2857/Bird_Classifier_CNNs",
+      technologies: [
+        "Python",
+        "Flask",
+        "Tensorflow",
+        "Keras",
+        "Machine Learning",
+        "REST API",
+      ]
     },
     {
       title: "Rust Multithread Web Server",
       description: "Created CLI-based web server in Rust utilizing TCP sockets",
       imgUrl: rustImg,
       link: "https://github.com/jdeng2857/rust-multithreaded-web-server",
+      technologies: [
+        "Rust",
+        "TCP",
+        "Cargo",
+        "Concurrency",
+      ]
     },
   ];
 

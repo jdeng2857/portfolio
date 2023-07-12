@@ -454,8 +454,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .experience .experience_section {
   margin-top: 50px;
 }
-.experience_section .technologies_button {
+.technologies_button {
   margin: 5px;
+}
+.buffer_section {
+  margin-bottom: 10px;
 }
 
 /************ Projects Css ************/
