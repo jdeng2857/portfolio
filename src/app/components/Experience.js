@@ -62,12 +62,15 @@ export const Experience = () => {
         period: "Jan 2023 - Aug 2023",
       },
       descriptions: [
-        "- On the Edge Infrastructure team, developed HTTPS L7 routing infrastructure with Google Kubernetes Engine, involving updating custom NGINX" +
-        " middleware written in Lua, provisioning SSL certificates and firewall rules, traffic management, handling 20 million RPM.",
+        "- On the Edge Infrastructure team responsible for all of Shopify's internal network, developed HTTP routing infrastructure with Google Kubernetes Engine, involving updating custom NGINX"
+        +" middleware written in Lua, managing DNS/SSL, configuring firewall rules, scaling Kubernetes pods and traffic",
         "- Built observability tooling with Prometheus metrics and integrated request latency dashboards with alerts.",
-        "- Implemented automated memory deletion for Kubernetes controller in Golang, reducing resources used.",
-        "- Upgraded Kubernetes cluster fleet in Terraform with custom developer tools, improving infrastructure security.",
-        "- Reduced latency between two major services by 75% using Kubernetes and Google Cloud Load Balancers",
+        "- Implemented novel routing algorithms in Golang, reducing latency for onboarded services by 40%",
+        "- Provisioned Google Cloud Load Balancers in Terraform for a major service, reducing p99 latency by 75%",
+        "- Optimized Kubernetes pod discovery service in Golang to use 50% less memory",
+        "- Refactored middleware for network metadata, removing the usage of Memcached from Kubernetes services,"
+        +" reducing storage requirements for several large Kubernetes clusters",
+        "- Improved custom continuous integration, allowing gradual multi-stage Kubernetes deployments by region",
       ],
     },
     {
@@ -105,12 +108,12 @@ export const Experience = () => {
         period: "May 2022 - Dec 2022",
       },
       descriptions: [
-        "- Prepared project experiment to add a new server-driven section to the store screen of the Shop app, including"
-        +" developing Ruby data loader ingesting MySQL data into client-ready GraphQL APIs with Redis caching",
+        "- Added a new section to a mobile app, using Ruby to transform MySQL data to GraphQL APIs",
+        "- Interfaced new event-driven features in the Ruby backend with Kafka and Redis persistent storage",
         "- Integrated Elasticsearch templates adding a new sort option for products, with over 2 million records",
-        "- Added Datadog monitoring and alerts for key backend services with StatsD metrics",
-        "- Championed project deep-dive into improving store section performance, discovering extraneous logic with distributed tracing in Observe and"
-        +" coordinated action items for the team, resulting in 10% average reduction in latency across all services",
+        "- Developed backwards-compatible pagination support in Ruby, reducing GraphQL calls to load more data",
+        "- Added monitoring to backend services with StatsD metrics and Datadog alerts",
+        "- Debugged extraneous logic with distributed tracing, reducing feature flag overhead in several services",
       ],
     },
     {
@@ -151,6 +154,7 @@ export const Experience = () => {
         "- Designed and integrated report editing buttons into a data platform website combining all data sources, creating"
          +" React components, enabling archiving and locking reports for over 1000 developers and data scientists",
         "- Fixed CSS styling errors, resulting in correct links and improved flex layout for superior user experience",
+        "- Created more robust unit and integration tests for both frontend and backend services",
         "- Developed Ruby GraphQL APIs to allow authenticated users to access restricted functionalities and datasets",
         "- Owned pages of a major data discovery website revamp, drafting Figma designs, creating React components, "
         +"transforming GraphQL queries with Typescript, resulting in improved UI navigation for over 4000 users",
