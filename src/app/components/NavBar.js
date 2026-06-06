@@ -2,11 +2,11 @@
 
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import logo from '../assets/img/logo.svg';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
@@ -52,6 +52,7 @@ export const NavBar = () => {
                     <a href="https://github.com/jdeng2857" target="_blank"><Image src={navIcon3} alt="github"/></a>
                     <a href="/jerrydeng.pdf" download target="_blank"><Image src={navIcon2} alt="resume" /></a>
                 </div>
+                <ThemeToggle />
                 </span>
             </Navbar.Collapse>
             </Container>

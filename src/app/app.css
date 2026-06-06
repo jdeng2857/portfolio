@@ -15,6 +15,42 @@
 	font-weight: 400;
 }
 
+/************ Theme Variables ************/
+:root,
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: black;
+  --text-primary: #fff;
+  --text-secondary: #B8B8B8;
+  --navbar-bg: #121212;
+  --social-icon-bg: rgba(223, 223, 223, 0.395);
+  --social-icon-border: rgba(255, 255, 255, 0.5);
+  --social-icon-hover-bg: #ffffff;
+  --section-border: rgba(255, 255, 255, 0.3);
+  --section-hover-border: #4a8eff;
+  --btn-outline-color: rgba(255, 255, 255, 0.8);
+  --btn-outline-text: #fff;
+  --toggler-color: #fff;
+  --icon-invert: 0;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #e8e8e8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --navbar-bg: #ffffff;
+  --social-icon-bg: rgba(0, 0, 0, 0.1);
+  --social-icon-border: rgba(0, 0, 0, 0.2);
+  --social-icon-hover-bg: #1a1a1a;
+  --section-border: rgba(0, 0, 0, 0.15);
+  --section-hover-border: #2563eb;
+  --btn-outline-color: rgba(0, 0, 0, 0.6);
+  --btn-outline-text: #1a1a1a;
+  --toggler-color: #1a1a1a;
+  --icon-invert: 1;
+}
+
 /************ Default Css ************/
 * {
   margin: 0;
@@ -31,9 +67,10 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #121212 !important;
-  color: #fff !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
   font-family: 'Centra', sans-serif !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,14 +129,14 @@ nav.navbar {
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  background-color: var(--navbar-bg);
 }
 nav.navbar a.navbar-brand {
     width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: #fff !important;
+  color: var(--text-primary) !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
   font-size: 18px;
@@ -120,21 +157,21 @@ span.navbar-text {
 .social-icon a {
     width: 42px;
     height: 42px;
-    background: rgba(223, 223, 223, 0.395);
+    background: var(--social-icon-bg);
     display: inline-flex;
     border-radius: 50%;
     margin-right: 6px;
     align-items: center;
     justify-content: center;
     line-height: 1;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--social-icon-border);
 }
 .social-icon a::before {
     content: "";
     width: 42px;
     height: 42px;
     position: absolute;
-    background-color: #ffffff;
+    background-color: var(--social-icon-hover-bg);
     border-radius: 50%;
     transform: scale(0);
 	  transition: 0.3s ease-in-out;
@@ -146,13 +183,14 @@ span.navbar-text {
 	width: 50%;
 	z-index: 1;
 	transition: 0.3s ease-in-out;
+	filter: invert(var(--icon-invert));
 }
 .social-icon a:hover img {
 	filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
 }
 .navbar-text button {
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   border: 1px solid #fff;
   padding: 18px 34px;
   font-size: 18px;
@@ -176,7 +214,7 @@ span.navbar-text {
   transition: 0.3s ease-in-out;
 }
 .navbar-text button:hover {
-  color: #121212;
+  color: var(--bg-primary);
 }
 .navbar-text button:hover::before {
 	content: "";
@@ -194,19 +232,19 @@ nav.navbar .navbar-toggler-icon {
   height: 17px;
   background-image: none;
   position: relative;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--toggler-color);
   transition: all 300ms linear;
   top: -2px;
 }
 nav.navbar .navbar-toggler-icon:focus {
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid var(--toggler-color);
 }
 nav.navbar .navbar-toggler-icon:after,
 nav.navbar .navbar-toggler-icon:before {
 	width: 24px;
 	position: absolute;
 	height: 2px;
-	background-color: #fff;
+	background-color: var(--toggler-color);
 	top: 0;
 	left: 0;
 	content: '';
@@ -218,12 +256,12 @@ nav.navbar .navbar-toggler-icon:after {
 }
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
 	transform: rotate(45deg);
-	background-color: #fff;
+	background-color: var(--toggler-color);
 	height: 2px;
 }
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 	transform: translateY(8px) rotate(-45deg);
-	background-color: #fff;
+	background-color: var(--toggler-color);
 	height: 2px;
 }
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
@@ -234,10 +272,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg.png');
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(135deg, #0d0118 0%, #1a0e3a 30%, #120b2a 60%, #080515 100%);
+}
+[data-theme="light"] .banner {
+  background-image: none;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 30%, #93c5fd 60%, #e0f2fe 100%);
 }
 .banner .tagline {
   font-weight: 700;
@@ -258,7 +297,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: block;
 }
 .banner p {
-  color: #B8B8B8;
+  color: var(--text-secondary);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -348,7 +387,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .experience {
   padding: 60px 0;
   position: relative;
-  background-color: black;
+  background-color: var(--bg-secondary);
 }
 .experience h2 {
 	font-size: 45px;
@@ -356,7 +395,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
 }
 .experience p {
-  color: #B8B8B8;
+  color: var(--text-secondary);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -456,6 +495,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .technologies_button {
   margin: 5px;
+  color: var(--btn-outline-text) !important;
+  border-color: var(--btn-outline-color) !important;
 }
 .buffer_section {
   margin-bottom: 10px;
@@ -610,12 +651,40 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .experience_section{
-  border: 1px solid ;
+  border: 1px solid var(--section-border);
   padding: 10px;
   transition: border-color 0.3s;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
 }
 
 .experience_section.hovered {
-  border-color: blue;
+  border-color: var(--section-hover-border);
+}
+
+/************ Theme Toggle ************/
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  font-size: 20px;
+  cursor: pointer;
+  background: var(--social-icon-bg) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  margin-left: 6px;
+  padding: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.theme-toggle::before {
+  display: none !important;
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.3) !important;
 }
