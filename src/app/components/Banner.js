@@ -6,7 +6,7 @@ import headerImg from "../assets/img/header-img.svg";
 import faceImg from "../assets/img/personal_website_face.png";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { useIsVisible } from '../hooks/useIsVisible';
 import Image from "next/image";
 
 export const Banner = () => {
@@ -17,6 +17,9 @@ export const Banner = () => {
   const [index, setIndex] = useState(1);
   const toRotate = [ "Software Engineer", "Fullstack Developer", "Infrastructure Engineer" ];
   const period = 2000;
+
+  const [textRef, isTextVisible] = useIsVisible();
+  const [imgRef, isImgVisible] = useIsVisible();
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -56,24 +59,18 @@ export const Banner = () => {
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h1>{`Hi! I'm Jerry `}</h1>
-                <p>I am a 4th year computer science student at Carleton University currently
-                   interning as an Infrastructure Engineer at Shopify. At Shopify, I have also interned 
-                   in backend and frontend positions. Feel free to take a look at my experience and 
-                   projects or connect via Linkedin!</p>
-              </div>}
-            </TrackVisibility>
+            <div ref={textRef} className={isTextVisible ? "animate__animated animate__fadeIn" : ""}>
+              <h1>{`Hi! I'm Jerry `}</h1>
+              <p>I am a 4th year computer science student at Carleton University currently
+                 interning as an Infrastructure Engineer at Shopify. At Shopify, I have also interned
+                 in backend and frontend positions. Feel free to take a look at my experience and
+                 projects or connect via Linkedin!</p>
+            </div>
           </Col>
           <Col xs={12} md={6} xl={5}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <Image src={faceImg} alt="Header Img"/>
-                </div>}
-            </TrackVisibility>
+            <div ref={imgRef} className={isImgVisible ? "animate__animated animate__zoomIn" : ""}>
+              <Image src={faceImg} alt="Header Img"/>
+            </div>
           </Col>
         </Row>
       </Container>

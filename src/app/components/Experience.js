@@ -3,7 +3,7 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import React, { useState } from 'react';
 import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { useIsVisible } from '../hooks/useIsVisible';
 import ExperienceSection from "./ExperienceSection";
 
 import kubernetesImg from '../assets/img/technologies/kubernetes.png';
@@ -25,6 +25,7 @@ import linuxImg from '../assets/img/technologies/linux.png';
 import gitImg from '../assets/img/technologies/git.png';
 
 export const Experience = () => {
+  const [ref, isVisible] = useIsVisible();
 
   const experience_data = [
     {
@@ -195,7 +196,7 @@ export const Experience = () => {
         period: "Sep 2020 - Apr 2021",
       },
       descriptions: [
-        "- Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " + 
+        "- Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " +
         "while taking university classes at Carleton University for a computer Science degree.",
         "- Completed an 8-month long training path with courses in Ruby on Rails, Git, Scrum, SQL databases, React, Javascript, and GraphQL",
       ],
@@ -231,29 +232,25 @@ export const Experience = () => {
       ],
     },
   ]
-  
+
 
   return (
     <section className="experience" id="experience">
       <Container>
         <Row>
           <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <section className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                  <h2>Experience</h2>
-                  {experience_data.map((experience, index) => (
-                    <ExperienceSection 
-                      key={index}
-                      images={experience.images} 
-                      technologies={experience.technologies}
-                      headings={experience.headings} 
-                      descriptions={experience.descriptions}
-                    />
-                  ))}
-                </section>
-              } 
-            </TrackVisibility>
+            <section ref={ref} className={isVisible ? "animate__animated animate__fadeIn": ""}>
+              <h2>Experience</h2>
+              {experience_data.map((experience, index) => (
+                <ExperienceSection
+                  key={index}
+                  images={experience.images}
+                  technologies={experience.technologies}
+                  headings={experience.headings}
+                  descriptions={experience.descriptions}
+                />
+              ))}
+            </section>
           </Col>
         </Row>
       </Container>
