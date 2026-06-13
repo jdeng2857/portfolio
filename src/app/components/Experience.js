@@ -19,9 +19,6 @@ import graphqlImg from '../assets/img/technologies/graphql.png';
 import reactImg from '../assets/img/technologies/react.png';
 import typescriptImg from '../assets/img/technologies/typescript.png';
 import cssImg from '../assets/img/technologies/css.png';
-import wiresharkImg from '../assets/img/technologies/wireshark.png';
-import bashImg from '../assets/img/technologies/bash.png';
-import linuxImg from '../assets/img/technologies/linux.png';
 import gitImg from '../assets/img/technologies/git.png';
 
 export const Experience = () => {
@@ -199,36 +196,6 @@ export const Experience = () => {
         "- Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " +
         "while taking university classes at Carleton University for a computer Science degree.",
         "- Completed an 8-month long training path with courses in Ruby on Rails, Git, Scrum, SQL databases, React, Javascript, and GraphQL",
-      ],
-    },
-    {
-      images: [
-        {
-          classname: "bash",
-          src: bashImg,
-        },
-        {
-          classname: "wireshark",
-          src: wiresharkImg,
-        },
-        {
-          classname: "linux",
-          src: linuxImg,
-        },
-      ],
-      technologies: [
-        "Bash",
-        "Wireshark",
-        "Linux",
-      ],
-      headings: {
-        title: "Nokia | Future Tech Intern",
-        period: "Jul 2019 - Aug 2019",
-      },
-      descriptions: [
-        "- Analyzed network traffic with Wireshark to detect malware on mobile devices",
-        "- Developed and shipped malware signatures into a system that blocks malignant requests",
-        "- Learned the OSI model, TCP/IP, network security, bash, linux",
       ],
     },
   ]
