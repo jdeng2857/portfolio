@@ -19,7 +19,7 @@ import graphqlImg from '../assets/img/technologies/graphql.png';
 import reactImg from '../assets/img/technologies/react.png';
 import typescriptImg from '../assets/img/technologies/typescript.png';
 import cssImg from '../assets/img/technologies/css.png';
-import gitImg from '../assets/img/technologies/git.png';
+
 
 export const Experience = () => {
   const [ref, isVisible] = useIsVisible();
@@ -56,19 +56,49 @@ export const Experience = () => {
         "Go",
       ],
       headings: {
-        title: "Shopify | Infrastructure Engineer Intern",
-        period: "Jan 2023 - Aug 2023",
+        title: "Shopify | Infrastructure Engineer",
+        period: "Oct 2023 - Present",
       },
       descriptions: [
-        "- On the Edge Infrastructure team responsible for all of Shopify's internal network, developed HTTP routing infrastructure with Google Kubernetes Engine, involving updating custom NGINX"
-        +" middleware written in Lua, managing DNS/SSL, configuring firewall rules, scaling Kubernetes pods and traffic",
-        "- Built observability tooling with Prometheus metrics and integrated request latency dashboards with alerts.",
-        "- Implemented novel routing algorithms in Golang, reducing latency for onboarded services by 40%",
-        "- Provisioned Google Cloud Load Balancers in Terraform for a major service, reducing p99 latency by 75%",
-        "- Optimized Kubernetes pod discovery service in Golang to use 50% less memory",
-        "- Refactored middleware for network metadata, removing the usage of Memcached from Kubernetes services,"
-        +" reducing storage requirements for several large Kubernetes clusters",
-        "- Improved custom continuous integration, allowing gradual multi-stage Kubernetes deployments by region",
+        "On the Edge Infrastructure team, manage ingress-nginx routing infrastructure on GKE handling 60 million RPM, including traffic shifting, autoscaling, and integration with edge network providers, DNS, and BGP. Architected a custom Kubernetes autoscaler for nginx that decouples scaling from deployments, reducing execution time by 99.9% (from 12 hours to under 30 seconds). Led an effort to simplify routing infrastructure images by removing unused dependencies and coordinating zero-downtime migrations, cutting image size by 50% and build times by 70%. Onboarded service traffic to a new GCP load balancer-based routing path, configuring Terraform resources, DNS, Kubernetes controllers, and gRPC-based control planes, delivering a 20ms reduction in latency. Serve in 24/7 on-call rotations, resolving incidents and driving root cause analyses and postmortems.",
+      ],
+    },
+    {
+      images: [
+        {
+          classname: "kubernetes",
+          src: kubernetesImg,
+        },
+        {
+          classname: "gcp",
+          src: gcpImg,
+        },
+        {
+          classname: "terraform",
+          src: terraformImg,
+        },
+        {
+          classname: "nginx",
+          src: nginxImg,
+        },
+        {
+          classname: "golang",
+          src: golangImg,
+        },
+      ],
+      technologies: [
+        "Kubernetes",
+        "Google Cloud Platform",
+        "Terraform",
+        "Nginx",
+        "Go",
+      ],
+      headings: {
+        title: "Shopify | Infrastructure Engineer Intern",
+        period: "Jan 2023 - Sep 2023",
+      },
+      descriptions: [
+        "On the Edge Infrastructure team, implemented location-based routing with Go and gRPC to route requests within the same region as clients, reducing p99 latency by 40%. Evaluated cloud vendor alternatives for north-south service communication and created a proposal that became the foundation of routing simplification projects. Built progressive multi-stage Kubernetes deployments by region with CI/CD tooling.",
       ],
     },
     {
@@ -106,12 +136,7 @@ export const Experience = () => {
         period: "May 2022 - Dec 2022",
       },
       descriptions: [
-        "- Added a new section to a mobile app, using Ruby to transform MySQL data to GraphQL APIs",
-        "- Interfaced new event-driven features in the Ruby backend with Kafka and Redis persistent storage",
-        "- Integrated Elasticsearch templates adding a new sort option for products, with over 2 million records",
-        "- Developed backwards-compatible pagination support in Ruby, reducing GraphQL calls to load more data",
-        "- Added monitoring to backend services with StatsD metrics and Datadog alerts",
-        "- Debugged extraneous logic with distributed tracing, reducing feature flag overhead in several services",
+        "Remodeled the merchant store page on the Shop mobile app, introducing GraphQL dataloaders to run experiments. Integrated Elasticsearch templates to add a new product-sorting capability across 2 million records, improving relevance and query performance at scale. Developed backwards-compatible pagination support for the store products page in Ruby on Rails.",
       ],
     },
     {
@@ -149,53 +174,7 @@ export const Experience = () => {
         period: "May 2021 - Apr 2022",
       },
       descriptions: [
-        "- Designed and integrated report editing buttons into a data platform website combining all data sources, creating"
-         +" React components, enabling archiving and locking reports for over 1000 developers and data scientists",
-        "- Fixed CSS styling errors, resulting in correct links and improved flex layout for superior user experience",
-        "- Created more robust unit and integration tests for both frontend and backend services",
-        "- Developed Ruby GraphQL APIs to allow authenticated users to access restricted functionalities and datasets",
-        "- Owned pages of a major data discovery website revamp, drafting Figma designs, creating React components, "
-        +"transforming GraphQL queries with Typescript, resulting in improved UI navigation for over 4000 users",
-      ],
-    },
-    {
-      images: [
-        {
-          classname: "git",
-          src: gitImg,
-        },
-        {
-          classname: "graphql",
-          src: graphqlImg,
-        },
-        {
-          classname: "react",
-          src: reactImg,
-        },
-        {
-          classname: "typescript",
-          src: typescriptImg,
-        },
-        {
-          classname: "ruby",
-          src: rubyImg,
-        },
-      ],
-      technologies: [
-        "Git",
-        "GraphQL",
-        "React",
-        "Typescript",
-        "Ruby",
-      ],
-      headings: {
-        title: "Shopify | Dev Degree Intern",
-        period: "Sep 2020 - Apr 2021",
-      },
-      descriptions: [
-        "- Accepted into Shopify's Dev Degree program, where I intern in developer positions at Shopify " +
-        "while taking university classes at Carleton University for a computer Science degree.",
-        "- Completed an 8-month long training path with courses in Ruby on Rails, Git, Scrum, SQL databases, React, Javascript, and GraphQL",
+        "Built Ruby-based GraphQL APIs to securely authenticate users against sensitive datasets. Owned major sections of an internal dataset discovery platform redesign, developing React TypeScript components and refactoring GraphQL data layers, delivering a significantly improved navigation experience for 4,000 internal users.",
       ],
     },
   ]

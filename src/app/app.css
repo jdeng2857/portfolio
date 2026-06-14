@@ -497,6 +497,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin: 5px;
   color: var(--btn-outline-text) !important;
   border-color: var(--btn-outline-color) !important;
+  pointer-events: none;
 }
 .buffer_section {
   margin-bottom: 10px;
