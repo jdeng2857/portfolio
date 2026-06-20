@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect } from "react";
 
 function regionLayout(centerX: number) {
   const spread = [-28, -14, 0, 14, 28];
-  const users = spread.map((dx) => ({ x: centerX + dx, y: 48 }));
+  const users = spread.map((dx) => ({ x: centerX + dx, y: 40 }));
   const lb = { x: centerX - 28, y: 66, w: 56, h: 14 };
   const lbCx = centerX;
   const lbTop = lb.y;
@@ -30,17 +31,24 @@ const routesB = [
   { userIdx: 4, serverIdx: 2 },
 ];
 
-function Cloud({ cx, cy }: { cx: number; cy: number }) {
+function Cloud({ cx }: { cx: number }) {
+  const b = 52;
   return (
-    <g>
-      <ellipse cx={cx - 18} cy={cy + 2} rx={18} ry={9} fill="white" stroke="#bbb" strokeWidth={0.8} />
-      <ellipse cx={cx + 18} cy={cy + 2} rx={18} ry={9} fill="white" stroke="#bbb" strokeWidth={0.8} />
-      <ellipse cx={cx} cy={cy - 3} rx={20} ry={10} fill="white" stroke="#bbb" strokeWidth={0.8} />
-      <rect x={cx - 34} y={cy + 1} width={68} height={10} fill="white" stroke="none" />
-      <ellipse cx={cx - 18} cy={cy + 2} rx={16} ry={7} fill="white" stroke="none" />
-      <ellipse cx={cx + 18} cy={cy + 2} rx={16} ry={7} fill="white" stroke="none" />
-      <ellipse cx={cx} cy={cy - 3} rx={18} ry={8} fill="white" stroke="none" />
-    </g>
+    <path
+      d={`
+        M ${cx - 36} ${b}
+        L ${cx + 36} ${b}
+        C ${cx + 36} ${b - 8} ${cx + 38} ${b - 14} ${cx + 32} ${b - 18}
+        C ${cx + 28} ${b - 32} ${cx + 18} ${b - 30} ${cx + 12} ${b - 24}
+        C ${cx + 6} ${b - 38} ${cx - 6} ${b - 38} ${cx - 12} ${b - 24}
+        C ${cx - 18} ${b - 30} ${cx - 28} ${b - 32} ${cx - 32} ${b - 18}
+        C ${cx - 38} ${b - 14} ${cx - 36} ${b - 8} ${cx - 36} ${b}
+        Z
+      `}
+      fill="white"
+      stroke="#bbb"
+      strokeWidth={0.8}
+    />
   );
 }
 
@@ -105,28 +113,31 @@ function AnimatedDot({
 }) {
   const user = layout.users[userIdx];
   const server = layout.servers[serverIdx];
+  const progress = useMotionValue(0);
+
+  const times = [0, 0.2, 0.25, 0.55, 0.6, 1];
+  const cx = useTransform(progress, times,
+    [user.x, layout.lbCx, layout.lbCx, server.x, server.x, server.x]);
+  const cy = useTransform(progress, times,
+    [user.y, layout.lbTop, layout.lbBottom, server.y, server.y, layout.dbTop]);
+  const opacity = useTransform(progress, times,
+    [0, 1, 1, 1, 1, 0]);
+
+  useEffect(() => {
+    const controls = animate(progress, 1, {
+      duration: 3,
+      delay,
+      repeat: Infinity,
+      repeatDelay: 1,
+      ease: "linear",
+    });
+    return () => controls.stop();
+  }, [delay, progress]);
 
   return (
     <>
       <SelectionPulse cx={server.x} cy={server.y} delay={delay} />
-      <motion.circle
-        r={2}
-        fill="#666"
-        initial={{ cx: user.x, cy: user.y, opacity: 0 }}
-        animate={{
-          cx: [user.x, layout.lbCx, layout.lbCx, server.x, server.x, server.x],
-          cy: [user.y, layout.lbTop, layout.lbBottom, server.y, server.y, layout.dbTop],
-          opacity: [0, 1, 1, 1, 1, 0],
-        }}
-        transition={{
-          duration: 3,
-          delay,
-          repeat: Infinity,
-          repeatDelay: 1,
-          ease: "linear",
-          times: [0, 0.2, 0.25, 0.55, 0.6, 1],
-        }}
-      />
+      <motion.circle r={2} fill="#666" style={{ cx, cy, opacity }} />
     </>
   );
 }
@@ -142,18 +153,18 @@ function Region({
 
   return (
     <g>
-      <Cloud cx={centerX} cy={25} />
+      <Cloud cx={centerX} />
 
       {users.map((u, i) => (
-        <line key={`ul${i}`} x1={u.x} y1={u.y + 2.5} x2={lbCx} y2={lbTop} stroke="#e0e0e0" strokeWidth={0.7} />
+        <line key={`ul${i}`} x1={u.x} y1={u.y} x2={lbCx} y2={lbTop} stroke="#e0e0e0" strokeWidth={0.7} />
       ))}
 
       {servers.map((s, i) => (
-        <line key={`ls${i}`} x1={lbCx} y1={lbBottom} x2={s.x} y2={s.y - 3} stroke="#e0e0e0" strokeWidth={0.7} />
+        <line key={`ls${i}`} x1={lbCx} y1={lbBottom} x2={s.x} y2={s.y} stroke="#e0e0e0" strokeWidth={0.7} />
       ))}
 
       {servers.map((s, i) => (
-        <line key={`sd${i}`} x1={s.x} y1={s.y + 3} x2={s.x} y2={db.y} stroke="#e0e0e0" strokeWidth={0.7} />
+        <line key={`sd${i}`} x1={s.x} y1={s.y} x2={s.x} y2={db.y} stroke="#e0e0e0" strokeWidth={0.7} />
       ))}
 
       <path
@@ -218,7 +229,7 @@ export default function LoadBalancerAnimation() {
 
   return (
     <svg
-      viewBox="0 0 410 185"
+      viewBox="0 0 410 172"
       width="100%"
       style={{ maxWidth: 460, display: "block", margin: "0 auto" }}
       role="img"
