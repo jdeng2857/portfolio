@@ -8,6 +8,32 @@
   padding: 2rem;
 }
 
+.animation {
+  max-width: 460px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 1.5rem;
+  }
+
+  .animation {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+}
+
 .title {
   font-size: 1.75rem;
   font-weight: 400;
