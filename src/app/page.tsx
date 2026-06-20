@@ -1,8 +1,13 @@
 import styles from "./page.module.css";
+import LoadBalancerAnimation from "./components/LoadBalancerAnimation";
 
 export default function App() {
   return (
     <main className={styles.main}>
+      <div className={styles.animation}>
+        <LoadBalancerAnimation />
+      </div>
+
       <h1 className={styles.title}>Jerry Deng</h1>
 
       <p className={styles.description}>
